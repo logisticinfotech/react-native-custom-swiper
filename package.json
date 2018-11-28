@@ -1,0 +1,30 @@
+{
+  "name": "react-native-custom-swiper",
+  "version": "1.0.0",
+  "description": "Custom swiper for React Native component.",
+  "main": "Swiper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logisticinfotech/react-native-custom-swiper.git"
+  },
+  "keywords": [
+    "Swiper",
+    "Custom",
+    "Horizontal",
+    "Flatlist",
+    "Swipe",
+    "View"
+  ],
+  "author": "Pankaj Gadhiya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logisticinfotech/react-native-custom-swiper/issues"
+  },
+  "homepage": "https://github.com/logisticinfotech/react-native-custom-swiper#readme",
+  "dependencies": {
+    "user": "0.0.0"
+  }
+}
