@@ -1,9 +1,8 @@
 
-### React Native customist swiper using FlatList React native component.
 
+### React Native custom swiper using Flatlist
 
-### A Light component for swipe element ,How to images or custom view swiping using this custom library, please follow below step to installation.
-
+### Use images or custom views for swiping, lets follow below steps to use this library.
 
 # Guide
 
