@@ -11,7 +11,6 @@ const rightArrow = require("./resource/rightIcon.png");
 class Swiper extends React.Component {
     constructor(props) {
         super(props);
-        // set up local state
         this.state = {
             showSwipeBtn: this.props.showSwipeBtn,
             arrSwipeData: this.props.swipeData,
@@ -22,12 +21,10 @@ class Swiper extends React.Component {
             childViewHeight: height,
         };
 
-
         this.viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
     }
 
     componentDidMount = () => {
-
         if (this.swiper) {
             this.swiper.scrollToIndex({
                 animated: false,
@@ -46,7 +43,7 @@ class Swiper extends React.Component {
             });
         }
     };
-    // pn press Back button method
+    
     _onPressBackBtn = () => {
         if (this.state.currentSelectIndex != 0) {
             this.swiper.scrollToIndex({
@@ -142,8 +139,8 @@ class Swiper extends React.Component {
 Swiper.propTypes = {
     swipeData: PropTypes.array.isRequired,
     renderSwipeItem: PropTypes.func.isRequired,
-    leftButtonImage: PropTypes.func,
-    rightButtonImage: PropTypes.func,
+    leftButtonImage: PropTypes.string,
+    rightButtonImage: PropTypes.string,
     showSwipeBtn: PropTypes.bool,
     currentSelectIndex: PropTypes.number,
     containerWidth: PropTypes.number,
