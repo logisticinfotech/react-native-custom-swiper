@@ -29,7 +29,7 @@ import Swiper from "react-native-custom-swiper";
 
 
 # Example:
-### Write below cod inside App.js File.
+### Write below code inside App.js File.
 
 ```
 constructor(props) {
@@ -77,10 +77,10 @@ render() {
 }
 
 ```
-### You can show output Below
+### You can see output Below
 
 # Results:
-## https://www.dropbox.com/s/kbj8pd7uz0ymbr0/RNCustomSwiper.mov?dl=0
+![](RNCustomSwiper.gif)
 
 
 ### Properties
