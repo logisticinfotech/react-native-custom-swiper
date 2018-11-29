@@ -14,12 +14,14 @@ npm i react-native-custom-swiper
 
 # Usage
 ```
+import Swiper from "react-native-custom-swiper";
+
 <Swiper
-style={{ flex: 1 }}
-currentSelectIndex={0}
-swipeData={this.state.imgArray}
-renderSwipeItem={this.renderImageSwipeItem}
-onScreenChange={this.screenChange}
+    style={{ flex: 1 }}
+    currentSelectIndex={0}
+    swipeData={this.state.imgArray}
+    renderSwipeItem={this.renderImageSwipeItem}
+    onScreenChange={this.screenChange}
 />
 
 ```
@@ -31,47 +33,47 @@ onScreenChange={this.screenChange}
 
 ```
 constructor(props) {
-super(props);
-this.state = {
-imgArray: [
-"https://dummyimage.com/600x400/00ffae/ffffff.png&text=Wel+Come",
-"https://dummyimage.com/600x400/00ffae/ffffff.png&text=React+Native",
-"https://dummyimage.com/600x400/00ffae/ffffff.png&text=Custom+Swiper",
-],
-currentIndex: 0,
-};
+    super(props);
+    this.state = {
+        imgArray: [
+            "https://dummyimage.com/600x400/00ffae/ffffff.png&text=Wel+Come",
+            "https://dummyimage.com/600x400/00ffae/ffffff.png&text=React+Native",
+            "https://dummyimage.com/600x400/00ffae/ffffff.png&text=Custom+Swiper",
+        ],
+        currentIndex: 0,
+    };
 }
 
 // Handled swipe position change
 screenChange = index => {
-console.log("index when change :=> \n", index);
-this.setState({ currentIndex: index });
+    console.log("index when change :=> \n", index);
+    this.setState({ currentIndex: index });
 };
 
 // Render Rows
 renderImageSwipeItem = item => {
-return (
-<View>
-<Image style={{ height: height, width: width }} source={{ uri: item }} resizeMode="contain" />
-</View>
-);
+    return (
+        <View>
+            <Image style={{ height: height, width: width }} source={{ uri: item }} resizeMode="contain" />
+        </View>
+    );
 };
 
 
 render() {
-return (
-<SafeAreaView style={styles.container}>
-<Text style={styles.txtStyle}> RN Custom Swiper </Text>
-<Text style={styles.txtStyle}> Current Index : {this.state.currentIndex} </Text>
-<Swiper
-style={{ flex: 1 }}
-currentSelectIndex={0}
-swipeData={this.state.imgArray}
-renderSwipeItem={this.renderImageSwipeItem}
-onScreenChange={this.screenChange}
-/>
-</SafeAreaView>
-);
+    return (
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.txtStyle}> RN Custom Swiper </Text>
+            <Text style={styles.txtStyle}> Current Index : {this.state.currentIndex} </Text>
+            <Swiper
+                style={{ flex: 1 }}
+                currentSelectIndex={0}
+                swipeData={this.state.imgArray}
+                renderSwipeItem={this.renderImageSwipeItem}
+                onScreenChange={this.screenChange}
+            />
+        </SafeAreaView>
+    );
 }
 
 ```
