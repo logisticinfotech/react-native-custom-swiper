@@ -43,7 +43,7 @@ class Swiper extends React.Component {
             });
         }
     };
-    
+
     _onPressBackBtn = () => {
         if (this.state.currentSelectIndex != 0) {
             this.swiper.scrollToIndex({
@@ -101,6 +101,7 @@ class Swiper extends React.Component {
                         this.swiper = flatList;
                     }}
                     scrollEnabled={true}
+                    backgroundColor={this.props.backgroundColor}
                     data={this.state.arrSwipeData}
                     extraData={this.state}
                     keyExtractor={index => index}
@@ -118,17 +119,21 @@ class Swiper extends React.Component {
 
                 {this.state.currentSelectIndex > 0 && this.state.showSwipeBtn ? (
                     <View style={[styles.IconStyle, { left: 15, height: this.state.childViewHeight }]}>
-                        <TouchableWithoutFeedback onPress={this._onPressBackBtn}>
-                            <Image style={styles.IconImageView} source={this.props.leftButtonImage} />
-                        </TouchableWithoutFeedback>
+                        <View style={styles.viewBtn}>
+                            <TouchableWithoutFeedback onPress={this._onPressBackBtn}>
+                                <Image style={styles.IconImageView} source={this.props.leftButtonImage} />
+                            </TouchableWithoutFeedback>
+                        </View>
                     </View>
                 ) : null}
 
                 {this.state.currentSelectIndex < this.state.arrSwipeData.length - 1 && this.state.showSwipeBtn ? (
                     <View style={[styles.IconStyle, { right: 15, height: this.state.childViewHeight }]}>
-                        <TouchableWithoutFeedback onPress={this._onPressNextBtn}>
-                            <Image style={styles.IconImageView} source={this.props.rightButtonImage} />
-                        </TouchableWithoutFeedback>
+                        <View style={styles.viewBtn}>
+                            <TouchableWithoutFeedback onPress={this._onPressNextBtn}>
+                                <Image style={styles.IconImageView} source={this.props.rightButtonImage} />
+                            </TouchableWithoutFeedback>
+                        </View>
                     </View>
                 ) : null}
             </View>
@@ -139,13 +144,14 @@ class Swiper extends React.Component {
 Swiper.propTypes = {
     swipeData: PropTypes.array.isRequired,
     renderSwipeItem: PropTypes.func.isRequired,
-    leftButtonImage: PropTypes.string,
-    rightButtonImage: PropTypes.string,
+    leftButtonImage: PropTypes.any,
+    rightButtonImage: PropTypes.any,
     showSwipeBtn: PropTypes.bool,
     currentSelectIndex: PropTypes.number,
     containerWidth: PropTypes.number,
     style: PropTypes.object,
     onScreenChange: PropTypes.func,
+    backgroundColor: PropTypes.string,
 };
 
 Swiper.defaultProps = {
@@ -155,8 +161,9 @@ Swiper.defaultProps = {
     showSwipeBtn: true,
     currentSelectIndex: 0,
     containerWidth: width,
-    style: { flex: 1 },
+    style: { flex: 1, backgroundColor: "white" },
     onScreenChange: () => {},
+    backgroundColor: "white",
 };
 
 export default Swiper;
@@ -176,8 +183,17 @@ const styles = StyleSheet.create({
         top: -8,
     },
     IconImageView: {
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
+    },
+    viewBtn: {
+        height: 60,
+        width: 60,
+        borderRadius: 60 / 2,
+        backgroundColor: "white",
+        opacity: 0.3,
+        justifyContent: "center",
+        alignItems: "center",
     },
     swipeBtnStyle: { fontSize: 50, color: "white", justifyContent: "center" },
 });
