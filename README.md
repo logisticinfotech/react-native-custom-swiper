@@ -18,6 +18,8 @@ import Swiper from "react-native-custom-swiper";
 <Swiper
     style={{ flex: 1 }}
     currentSelectIndex={0}
+    autoplay={true}
+    autoplayTimeout={2}
     swipeData={this.state.imgArray}
     renderSwipeItem={this.renderImageSwipeItem}
     onScreenChange={this.screenChange}
@@ -77,6 +79,8 @@ render() {
                 </View>
                 <Swiper
                     currentSelectIndex={0}
+                    autoplay={true}
+                    autoplayTimeout={2}
                     backgroundColor="rgb(221,244,253)"
                     swipeData={this.state.imgArray}
                     renderSwipeItem={this.renderImageSwipeItem}
