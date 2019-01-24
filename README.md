@@ -1,4 +1,14 @@
 
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![License][license-image]][license-url]
+[![Code Style][code-style-image]][code-style-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![Build Status][travis-image]][travis-url]
+[![Code Coverage][coverage-image]][coverage-url]
+
+[![Gitter][gitter-image]][gitter-url]
+<!-- [![Quality][quality-image]][quality-url] -->
 
 ### React Native custom swiper using Flatlist
 
