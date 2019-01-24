@@ -1,18 +1,5 @@
 # react-native-custom-swiper
 
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][npm-downloads-image]][npm-url]
-[![License][license-image]][license-url]
-[![Code Style][code-style-image]][code-style-url]
-[![Dependency Status][daviddm-image]][daviddm-url]
-[![Build Status][travis-image]][travis-url]
-[![Code Coverage][coverage-image]][coverage-url]
-
-[![Gitter][gitter-image]][gitter-url]
-<!-- [![Quality][quality-image]][quality-url] -->
-
-> Redux bindings for Firestore. Provides low-level API used in other libraries such as [react-redux-firebase](https://github.com/prescottprue/react-redux-firebase)
-
 ### React Native custom swiper using Flatlist
 
 ### Use images or custom views for swiping, lets follow below steps to use this library.
