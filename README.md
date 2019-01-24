@@ -1,3 +1,4 @@
+# react-native-custom-swiper
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
@@ -9,6 +10,8 @@
 
 [![Gitter][gitter-image]][gitter-url]
 <!-- [![Quality][quality-image]][quality-url] -->
+
+> Redux bindings for Firestore. Provides low-level API used in other libraries such as [react-redux-firebase](https://github.com/prescottprue/react-redux-firebase)
 
 ### React Native custom swiper using Flatlist
 
