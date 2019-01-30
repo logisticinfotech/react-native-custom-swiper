@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-swiper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Custom swiper for React Native component.",
   "main": "Swiper.js",
   "scripts": {
