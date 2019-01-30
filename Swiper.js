@@ -8,11 +8,15 @@ const { width, height } = Dimensions.get("window");
 const leftArrow = require("./resource/leftIcon.png");
 const rightArrow = require("./resource/rightIcon.png");
 
+autoplayTimer = null;
+
 class Swiper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showSwipeBtn: this.props.showSwipeBtn,
+            autoplay : this.props.autoplay,
+            autoplayTimeout : this.props.autoplayTimeout,
             arrSwipeData: this.props.swipeData,
             currentSelectIndex:
                 this.props.currentSelectIndex < this.props.swipeData.length
@@ -24,12 +28,19 @@ class Swiper extends React.Component {
         this.viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
     }
 
+    
+    componentWillReceiveProps (nextProps) {
+        clearTimeout(autoplayTimer)
+    }
+
     componentDidMount = () => {
         if (this.swiper) {
             this.swiper.scrollToIndex({
                 animated: false,
                 index: this.state.currentSelectIndex,
             });
+
+            this.autoplay()
         }
     };
 
@@ -41,6 +52,7 @@ class Swiper extends React.Component {
                 index: this.state.currentSelectIndex + 1,
                 animated: true,
             });
+            this.autoplay()
         }
     };
 
@@ -50,6 +62,7 @@ class Swiper extends React.Component {
                 index: this.state.currentSelectIndex - 1,
                 animated: true,
             });
+            this.autoplay()
         }
     };
 
@@ -59,8 +72,28 @@ class Swiper extends React.Component {
             this.setState({
                 currentSelectIndex: viewableItems[0].index,
             });
+            let that = this;
+            // setTimeout(function(){
+            //     if (that.state.currentSelectIndex < that.state.arrSwipeData.length - 1) {
+            //         that.swiper.scrollToIndex({
+            //             index: that.state.currentSelectIndex + 1,
+            //             animated: true,
+            //         });
+            //     }
+            // }, 5000);
+            
         }
     };
+
+    autoplay = () => {
+        if(this.state.autoplay){
+            clearInterval(this._interval)
+            this._interval = setInterval(() => {
+                this._onPressNextBtn()
+            }, this.props.autoplayTimeout * 1000);
+        }
+        
+    }
 
     getItemLayout = (data, index) => ({
         length: this.props.containerWidth,
@@ -147,6 +180,8 @@ Swiper.propTypes = {
     leftButtonImage: PropTypes.any,
     rightButtonImage: PropTypes.any,
     showSwipeBtn: PropTypes.bool,
+    autoplay: PropTypes.bool,
+    autoplayTimeout: PropTypes.number,
     currentSelectIndex: PropTypes.number,
     containerWidth: PropTypes.number,
     style: PropTypes.object,
@@ -159,7 +194,9 @@ Swiper.defaultProps = {
     leftButtonImage: leftArrow,
     rightButtonImage: rightArrow,
     showSwipeBtn: true,
+    autoplayTimeout:5000,
     currentSelectIndex: 0,
+    autoplay: false,
     containerWidth: width,
     style: { flex: 1, backgroundColor: "white" },
     onScreenChange: () => {},
