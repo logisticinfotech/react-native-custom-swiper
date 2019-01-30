@@ -22,6 +22,8 @@ import Swiper from "react-native-custom-swiper";
     swipeData={this.state.imgArray}
     renderSwipeItem={this.renderImageSwipeItem}
     onScreenChange={this.screenChange}
+    autoplay={true}
+    autoplayTimeout={1}
 />
 
 ```
@@ -46,6 +48,6 @@ import Swiper from "react-native-custom-swiper";
 | containerWidth     |                       Screen width                        |  `number`  | Customize swiper screen width                   |
 | backgroundColor    |                          "white"                          |  `string`  | Customize swiper background color               |
 | autoplay    |                          true                          |  `bool`  | Change slide index automatically               |
-| autoplayTimeout    |                          2500                          |  `number`  | Delay between every slide               |
+| autoplayTimeout    |                          2500                          |  `number`  | Delay between every slide (in Second)              |
 
 
