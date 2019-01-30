@@ -45,5 +45,7 @@ import Swiper from "react-native-custom-swiper";
 | rightButtonImage   | Default right Arrow source {required("rightArrowString")} |  `string`  | Modify right arrow image                        |
 | containerWidth     |                       Screen width                        |  `number`  | Customize swiper screen width                   |
 | backgroundColor    |                          "white"                          |  `string`  | Customize swiper background color               |
+| autoplay    |                          true                          |  `bool`  | Change slide index automatically               |
+| autoplayTimeout    |                          2500                          |  `number`  | Delay between every slide               |
 
 

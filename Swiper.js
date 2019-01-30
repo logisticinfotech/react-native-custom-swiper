@@ -194,7 +194,7 @@ Swiper.defaultProps = {
     leftButtonImage: leftArrow,
     rightButtonImage: rightArrow,
     showSwipeBtn: true,
-    autoplayTimeout:5000,
+    autoplayTimeout:2500,
     currentSelectIndex: 0,
     autoplay: false,
     containerWidth: width,
