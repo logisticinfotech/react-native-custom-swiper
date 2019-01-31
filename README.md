@@ -2,7 +2,7 @@
 
 ### React Native custom swiper using Flatlist
 
-Use images or custom views for swiping, let's follow [this blog](https://www.logisticinfotech.com/blog/custom-swiper-react-native-flatlist/) to use this library.
+Use images or custom views for swiping, Please refer [this blog](https://www.logisticinfotech.com/blog/custom-swiper-react-native-flatlist/) to use this library.
 
 ## Npm repo
 https://www.npmjs.com/package/react-native-custom-swiper
