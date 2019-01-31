@@ -1,4 +1,8 @@
-
+<p align="left">
+  <a href="https://www.npmjs.com/package/react-native-custom-swiper"><img alt="npm version" src="https://img.shields.io/badge/npm-v4.0.0.0-green.svg"></a>
+  <a href="https://www.npmjs.com/package/react-native-custom-swiper"><img src="https://img.shields.io/badge/downloads-%3E1K-yellow.svg"></a>
+  <a href="https://www.npmjs.com/package/react-native-custom-swiper"<><img src="https://img.shields.io/badge/license-MIT-orange.svg"></a>
+</p>
 
 ### React Native custom swiper using Flatlist
 
