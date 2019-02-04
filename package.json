@@ -19,7 +19,7 @@
     "View"
   ],
   "author": "Logistic Infotech Pvt. Ltd.",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/logisticinfotech/react-native-custom-swiper/issues"
   },
