@@ -167,36 +167,6 @@ class Swiper extends React.Component {
   }
 }
 
-Swiper.propTypes = {
-  swipeData: PropTypes.array.isRequired,
-  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-  backgroundColor: PropTypes.string,
-  containerWidth: PropTypes.number,
-  currentSelectIndex: PropTypes.number,
-  leftButtonImage: Image.propTypes.source,
-  rightButtonImage: Image.propTypes.source,
-  showSwipeBtn: PropTypes.bool,
-  autoplay: PropTypes.bool,
-  autoplayTimeout: PropTypes.number,
-  renderSwipeItem: PropTypes.func.isRequired,
-  onScreenChange: PropTypes.func,
-};
-
-Swiper.defaultProps = {
-  style: styles.flexOne,
-  backgroundColor: 'white',
-  containerWidth: width,
-  currentSelectIndex: 0,
-  leftButtonImage: leftArrow,
-  rightButtonImage: rightArrow,
-  showSwipeBtn: true,
-  autoplayTimeout: 2500,
-  autoplay: false,
-  onScreenChange: () => {},
-};
-
-export default Swiper;
-
 const styles = StyleSheet.create({
   swiper: {
     flex: 1,
@@ -226,3 +196,36 @@ const styles = StyleSheet.create({
   },
   swipeBtnStyle: { fontSize: 50, color: 'white', justifyContent: 'center' },
 });
+
+Swiper.propTypes = {
+  swipeData: PropTypes.array.isRequired,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
+  backgroundColor: PropTypes.string,
+  containerWidth: PropTypes.number,
+  currentSelectIndex: PropTypes.number,
+  leftButtonImage: Image.propTypes.source,
+  rightButtonImage: Image.propTypes.source,
+  showSwipeBtn: PropTypes.bool,
+  autoplay: PropTypes.bool,
+  autoplayTimeout: PropTypes.number,
+  renderSwipeItem: PropTypes.func.isRequired,
+  onScreenChange: PropTypes.func,
+};
+
+Swiper.defaultProps = {
+  style: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  backgroundColor: 'white',
+  containerWidth: width,
+  currentSelectIndex: 0,
+  leftButtonImage: leftArrow,
+  rightButtonImage: rightArrow,
+  showSwipeBtn: true,
+  autoplayTimeout: 2500,
+  autoplay: false,
+  onScreenChange: () => {},
+};
+
+export default Swiper;
