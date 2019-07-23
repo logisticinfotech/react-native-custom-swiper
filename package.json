@@ -1,10 +1,12 @@
 {
   "name": "react-native-custom-swiper",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Custom swiper for React Native component.",
-  "main": "Swiper.js",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,10 @@
   },
   "homepage": "https://www.logisticinfotech.com/blog/custom-swiper-react-native-flatlist/",
   "dependencies": {
-    "user": "0.0.0"
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13",
+    "typescript": "^3.4.3"
   }
 }
