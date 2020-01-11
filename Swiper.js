@@ -142,7 +142,7 @@ class Swiper extends React.Component {
           backgroundColor={this.props.backgroundColor}
           data={this.state.arrSwipeData}
           extraData={this.state}
-          keyExtractor={(item, index) => (item + index).toString()}
+          keyExtractor={(item, index) => (item + index + 1).toString()}
           renderItem={this.renderItem}
           onViewableItemsChanged={this.onViewableItemsChanged}
           viewabilityConfig={this.viewabilityConfig}
