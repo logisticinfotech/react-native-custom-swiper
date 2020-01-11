@@ -37,7 +37,14 @@ class Swiper extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { swipeData } = this.props;
     if (autoplayTimer) clearTimeout(autoplayTimer);
+
+    if (swipeData !== nextProps.swipeData) {
+      this.setState({
+        arrSwipeData: nextProps.swipeData
+      });
+    }
   }
 
   componentDidMount = () => {
