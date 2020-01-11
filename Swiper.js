@@ -1,12 +1,20 @@
-import React from 'react';
-import { View, TouchableWithoutFeedback, FlatList, Dimensions, StyleSheet, Image, Text } from 'react-native';
+import React from "react";
+import {
+  View,
+  TouchableWithoutFeedback,
+  FlatList,
+  Dimensions,
+  StyleSheet,
+  Image,
+  Text
+} from "react-native";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
-const leftArrow = require('./resource/leftIcon.png');
-const rightArrow = require('./resource/rightIcon.png');
+const leftArrow = require("./resource/leftIcon.png");
+const rightArrow = require("./resource/rightIcon.png");
 
 autoplayTimer = null;
 
@@ -22,7 +30,7 @@ class Swiper extends React.Component {
         this.props.currentSelectIndex < this.props.swipeData.length
           ? this.props.currentSelectIndex
           : this.props.swipeData.length - 1,
-      childViewHeight: height,
+      childViewHeight: height
     };
 
     this.viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
@@ -44,7 +52,7 @@ class Swiper extends React.Component {
     if (this.state.currentSelectIndex < this.state.arrSwipeData.length - 1) {
       this.swiper.scrollToIndex({
         index: this.state.currentSelectIndex + 1,
-        animated: true,
+        animated: true
       });
       this.autoplay();
     }
@@ -54,7 +62,7 @@ class Swiper extends React.Component {
     if (this.state.currentSelectIndex != 0) {
       this.swiper.scrollToIndex({
         index: this.state.currentSelectIndex - 1,
-        animated: true,
+        animated: true
       });
       this.autoplay();
     }
@@ -64,7 +72,7 @@ class Swiper extends React.Component {
     if (viewableItems && viewableItems.length > 0) {
       this.props.onScreenChange(viewableItems[0].index);
       this.setState({
-        currentSelectIndex: viewableItems[0].index,
+        currentSelectIndex: viewableItems[0].index
       });
       let that = this;
       // setTimeout(function(){
@@ -90,7 +98,7 @@ class Swiper extends React.Component {
   getItemLayout = (data, index) => ({
     length: this.props.containerWidth,
     offset: this.props.containerWidth * index,
-    index,
+    index
   });
 
   onViewLayout = event => {
@@ -106,13 +114,18 @@ class Swiper extends React.Component {
         style={[
           {
             width: this.props.containerWidth,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: this.state.arrSwipeData[index],
-          },
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: this.state.arrSwipeData[index]
+          }
         ]}
-        onLayout={this.onViewLayout}>
-        {this.props.renderSwipeItem ? this.props.renderSwipeItem(item, index) : <Text>{index}</Text>}
+        onLayout={this.onViewLayout}
+      >
+        {this.props.renderSwipeItem ? (
+          this.props.renderSwipeItem(item, index)
+        ) : (
+          <Text>{index}</Text>
+        )}
       </View>
     );
   };
@@ -129,7 +142,7 @@ class Swiper extends React.Component {
           backgroundColor={this.props.backgroundColor}
           data={this.state.arrSwipeData}
           extraData={this.state}
-          keyExtractor={index => index}
+          keyExtractor={(item, index) => (item + index).toString()}
           renderItem={this.renderItem}
           onViewableItemsChanged={this.onViewableItemsChanged}
           viewabilityConfig={this.viewabilityConfig}
@@ -144,20 +157,37 @@ class Swiper extends React.Component {
         />
 
         {this.state.currentSelectIndex > 0 && this.state.showSwipeBtn ? (
-          <View style={[styles.IconStyle, { left: 15, height: this.state.childViewHeight }]}>
+          <View
+            style={[
+              styles.IconStyle,
+              { left: 15, height: this.state.childViewHeight }
+            ]}
+          >
             <View style={styles.viewBtn}>
               <TouchableWithoutFeedback onPress={this._onPressBackBtn}>
-                <Image style={styles.IconImageView} source={this.props.leftButtonImage} />
+                <Image
+                  style={styles.IconImageView}
+                  source={this.props.leftButtonImage}
+                />
               </TouchableWithoutFeedback>
             </View>
           </View>
         ) : null}
 
-        {this.state.currentSelectIndex < this.state.arrSwipeData.length - 1 && this.state.showSwipeBtn ? (
-          <View style={[styles.IconStyle, { right: 15, height: this.state.childViewHeight }]}>
+        {this.state.currentSelectIndex < this.state.arrSwipeData.length - 1 &&
+        this.state.showSwipeBtn ? (
+          <View
+            style={[
+              styles.IconStyle,
+              { right: 15, height: this.state.childViewHeight }
+            ]}
+          >
             <View style={styles.viewBtn}>
               <TouchableWithoutFeedback onPress={this._onPressNextBtn}>
-                <Image style={styles.IconImageView} source={this.props.rightButtonImage} />
+                <Image
+                  style={styles.IconImageView}
+                  source={this.props.rightButtonImage}
+                />
               </TouchableWithoutFeedback>
             </View>
           </View>
@@ -169,37 +199,41 @@ class Swiper extends React.Component {
 
 const styles = StyleSheet.create({
   swiper: {
-    flex: 1,
+    flex: 1
   },
   flexOne: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white"
   },
   IconStyle: {
-    position: 'absolute',
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    top: -8,
+    position: "absolute",
+    backgroundColor: "transparent",
+    justifyContent: "center",
+    top: -8
   },
   IconImageView: {
     width: 40,
-    height: 40,
+    height: 40
   },
   viewBtn: {
     height: 60,
     width: 60,
     borderRadius: 60 / 2,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     opacity: 0.3,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
-  swipeBtnStyle: { fontSize: 50, color: 'white', justifyContent: 'center' },
+  swipeBtnStyle: { fontSize: 50, color: "white", justifyContent: "center" }
 });
 
 Swiper.propTypes = {
   swipeData: PropTypes.array.isRequired,
-  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
+  style: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.number
+  ]),
   backgroundColor: PropTypes.string,
   containerWidth: PropTypes.number,
   currentSelectIndex: PropTypes.number,
@@ -209,15 +243,15 @@ Swiper.propTypes = {
   autoplay: PropTypes.bool,
   autoplayTimeout: PropTypes.number,
   renderSwipeItem: PropTypes.func.isRequired,
-  onScreenChange: PropTypes.func,
+  onScreenChange: PropTypes.func
 };
 
 Swiper.defaultProps = {
   style: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white"
   },
-  backgroundColor: 'white',
+  backgroundColor: "white",
   containerWidth: width,
   currentSelectIndex: 0,
   leftButtonImage: leftArrow,
@@ -225,7 +259,7 @@ Swiper.defaultProps = {
   showSwipeBtn: true,
   autoplayTimeout: 2500,
   autoplay: false,
-  onScreenChange: () => {},
+  onScreenChange: () => {}
 };
 
 export default Swiper;
